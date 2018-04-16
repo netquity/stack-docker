@@ -1,0 +1,18 @@
+FROM docker.elastic.co/elasticsearch/elasticsearch:6.2.3
+
+
+#COPY  ./config/elasticsearch.yml /usr/share/elasticsearch/config/elasticsearch.yml
+#COPY ./certificates/root-ca.pem /usr/share/elasticsearch/config/root-ca.pem
+#COPY ./certificates/CN=IP-127.0.0.1.crtfull.pem /usr/share/elasticsearch/config/CN=IP-127.0.0.1.crtfull.pem
+#COPY ./certificates/CN=IP-127.0.0.1.key.pem /usr/share/elasticsearch/config/CN=IP-127.0.0.1.key.pem
+#COPY ./certificates/truststore.jks /usr/share/elasticsearch/config/truststore.jks
+#COPY ./certificates/CN=IP-127.0.0.1-keystore.jks /usr/share/elasticsearch/config/CN=IP-127.0.0.1-keystore.jks
+
+      #- ./certificates/root-ca.pem:/usr/share/elasticsearch/plugins/search-guard-6-6.2.3-22.0/tools/root-ca.pem
+      #- ./certificates/CN=sgadmin.crtfull.pem:/usr/share/elasticsearch/plugins/search-guard-6-6.2.3-22.0/tools/CN=sgadmin.crtfull.pem
+      #- ./certificates/CN=sgadmin.key.pem:/usr/share/elasticsearch/plugins/search-guard-6-6.2.3-22.0/tools/CN=sgadmin.key.pem
+
+
+RUN elasticsearch-plugin install https://oss.sonatype.org/content/repositories/releases/com/floragunn/search-guard-6/6.2.3-22.0/search-guard-6-6.2.3-22.0.zip
+
+RUN ls /usr/share/elasticsearch/plugins

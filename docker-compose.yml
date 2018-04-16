@@ -18,14 +18,31 @@ services:
   #   ELASTIC_VERSION=6.0.0-beta1 TAG=6.0.0-beta1-3eab5b40 docker-compose up
   #
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch-oss:${TAG}
+    #image: docker.elastic.co/elasticsearch/elasticsearch:${TAG}
+    build:
+      context: ./
+      dockerfile: elasticsearch-dockerfile
     container_name: elasticsearch
     environment: ['http.host=0.0.0.0', 'transport.host=127.0.0.1', 'ELASTIC_PASSWORD=${ELASTIC_PASSWORD}']
     ports: ['127.0.0.1:9200:9200']
     networks: ['stack']
+    volumes:
+      - ./config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - ./certificates/root-ca.pem:/usr/share/elasticsearch/config/root-ca.pem
+      - ./certificates/chain-ca.pem:/usr/share/elasticsearch/config/chain-ca.pem
+      - ./certificates/CN=IP-127.0.0.1.crtfull.pem:/usr/share/elasticsearch/config/CN=IP-127.0.0.1.crtfull.pem
+      - ./certificates/CN=IP-127.0.0.1.key.pem:/usr/share/elasticsearch/config/CN=IP-127.0.0.1.key.pem
+      - ./certificates/truststore.jks:/usr/share/elasticsearch/config/truststore.jks
+      - ./certificates/CN=IP-127.0.0.1-keystore.jks:/usr/share/elasticsearch/config/CN=IP-127.0.0.1-keystore.jks
+      #- ./certificates/root-ca.pem:/usr/share/elasticsearch/plugins/search-guard-6-6.2.3-22.0/tools/root-ca.pem
+      #- ./certificates/CN=sgadmin.crtfull.pem:/usr/share/elasticsearch/plugins/search-guard-6-6.2.3-22.0/tools/CN=sgadmin.crtfull.pem
+      #- ./certificates/CN=sgadmin.key.pem:/usr/share/elasticsearch/plugins/search-guard-6-6.2.3-22.0/tools/CN=sgadmin.key.pem
 
   kibana:
-    image: docker.elastic.co/kibana/kibana-oss:${TAG}
+    image: docker.elastic.co/kibana/kibana:${TAG}
+    #build:
+    #  context: ./
+    #  dockerfile: kibana-dockerfile
     container_name: kibana
     environment:
       - ELASTICSEARCH_USERNAME=kibana

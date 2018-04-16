@@ -1,0 +1,25 @@
+cluster.name: "docker-cluster"
+network.host: 0.0.0.0
+
+# minimum_master_nodes need to be explicitly set when bound on a public IP
+# set to 1 to allow single node clusters
+# Details: https://github.com/elastic/elasticsearch/pull/17288
+discovery.zen.minimum_master_nodes: 1
+
+xpack.security.enabled: false
+
+searchguard.enterprise_modules_enabled: false
+
+searchguard.ssl.transport.pemcert_filepath: CN=IP-127.0.0.1.crtfull.pem
+searchguard.ssl.transport.pemkey_filepath: CN=IP-127.0.0.1.key.pem
+searchguard.ssl.transport.pemkey_password: 3373040fe70b58c11732
+searchguard.ssl.transport.pemtrustedcas_filepath: chain-ca.pem
+searchguard.ssl.transport.enforce_hostname_verification: false
+searchguard.ssl.http.enabled: true
+searchguard.ssl.http.pemcert_filepath: CN=IP-127.0.0.1.crtfull.pem
+searchguard.ssl.http.pemkey_filepath: CN=IP-127.0.0.1.key.pem
+searchguard.ssl.http.pemkey_password: 3373040fe70b58c11732
+searchguard.ssl.http.pemtrustedcas_filepath: chain-ca.pem
+
+searchguard.authcz.admin_dn:                                
+  - CN=sgadmin
