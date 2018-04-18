@@ -102,6 +102,13 @@ Search Guard must be initialized after Elasticsearch is started:
 $ docker-compose exec -T elasticsearch bin/init_sg.sh
 ```
 
+APM Server comes packaged with example Kibana dashboards, visualizations, and searches 
+for visualizing APM Server data in Kibana. You can install them by:
+
+```console
+$ docker-compose exec -T apm_server apm-server setup --dashboards
+```
+
 _This executes sgadmin and loads the configuration from `elasticsearch/config/sg/sg*.yml`_
 
 Give Kibana a few seconds to initialize, then access the Kibana web UI by hitting
