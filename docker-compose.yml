@@ -2,10 +2,10 @@ version: '2'
 
 services:
 
-  elasticsearch:
+  elasticsearch:  # https://github.com/elastic/elasticsearch-docker
     build:
       context: ./elasticsearch/
-      dockerfile: Dockerfile
+    container_name: elasticsearch
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
     ports:  # exposed to localhost only
@@ -13,12 +13,15 @@ services:
       - "127.0.0.1:9300:9300"
     environment:
       ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+      PING_USERNAME: "kibanaro"
+      PING_PASSWORD: "kibanaro"
     networks:
       - elk
 
-  kibana:
+  kibana:  # https://github.com/elastic/kibana-docker
     build:
       context: kibana/
+    container_name: kibana
     volumes:
       - ./kibana/config/:/usr/share/kibana/config:ro
     ports:
@@ -28,7 +31,7 @@ services:
     depends_on:
       - elasticsearch
 
-  apm_server:
+  apm_server:  # https://github.com/elastic/apm-server-docker
     image: docker.elastic.co/apm/apm-server:6.2.2
     container_name: apm_server
     volumes:
@@ -37,7 +40,7 @@ services:
     networks:
       - elk
     command: -e -E 'apm-server.host=0.0.0.0:8200'
-    depends_on: ['elasticsearch']
+    depends_on: ['elasticsearch', 'kibana']
 
 networks:
 

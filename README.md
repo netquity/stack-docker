@@ -1,5 +1,6 @@
 # stack-docker
-This example Docker Compose configuration includes Elasticsearch, Kibana and APM all running on a single machine under Docker. Based on [docker-elk repo](https://github.com/deviantony/docker-elk/tree/searchguard)
+This example Docker Compose configuration includes Elasticsearch, Kibana and APM all running on a single machine under Docker. 
+Based on [docker-elk repo](https://github.com/deviantony/docker-elk/tree/searchguard)
 
 ## Prerequisites
 - Docker and Compose. Windows and Mac users get Compose installed automatically
@@ -37,8 +38,9 @@ Default configuration of Search Guard in this repo is:
 * Hostname verification disabled
 * Self-signed SSL certificate for transport protocol (do not use in production)
 
-**Check the [Demo users and roles](http://docs.search-guard.com/latest/demo-users-roles) documentation page for a list
-and description of the built-in Search Guard users.**
+**Check the [Demo users and roles](http://docs.search-guard.com/latest/demo-users-roles) 
+and [Defining Roles and permissions](https://docs.search-guard.com/latest/roles-permissions) documentation pages 
+for a list and description of the built-in Search Guard users.**
 
 ## Contents
 
@@ -94,12 +96,6 @@ You can also choose to run it in background (detached mode):
 
 ```console
 $ docker-compose up -d
-```
-
-Search Guard must be initialized after Elasticsearch is started:
-
-```console
-$ docker-compose exec -T elasticsearch bin/init_sg.sh
 ```
 
 APM Server comes packaged with example Kibana dashboards, visualizations, and searches 
