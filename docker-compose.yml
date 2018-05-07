@@ -32,10 +32,9 @@ services:
       - elasticsearch
 
   apm_server:  # https://github.com/elastic/apm-server-docker
-    image: docker.elastic.co/apm/apm-server:6.2.2
+    build:
+      context: apm-server
     container_name: apm_server
-    volumes:
-      - ./apm-server/config/apm-server.yml:/usr/share/apm-server/apm-server.yml:ro
     ports: ['8200:8200']
     networks:
       - elk
