@@ -2,15 +2,16 @@
 # https://www.elastic.co/guide/en/apm/server/6.2/configuring-howto-apm-server.html
 # Config reference:
 # https://github.com/elastic/apm-server/blob/6.2/apm-server.reference.yml
+# Forum:
+# https://discuss.elastic.co/c/apm
 
-#apm-server:
-#  secret_token: coynBiHeckjupFiakdewEt
-#  ssl:
-#    enabled: true
-#    key: /usr/share/apm-server/certs/elastic.apm.key
-#    certificate: /usr/share/apm-server/certs/elastic.apm.crt
-#    # key_passphrase:
-
+apm-server:
+  secret_token: coynBiHeckjupFiakdewEt  # TODO: use env variable or secrets
+  ssl:
+    enabled: true
+    key: /usr/share/apm-server/certs/elastic.apm.key
+    certificate: /usr/share/apm-server/certs/elastic.apm.crt
+    # key_passphrase:
 
 output.elasticsearch:
   hosts: ["elasticsearch:9200"]

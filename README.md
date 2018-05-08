@@ -162,6 +162,8 @@ The Kibana default configuration is stored in `kibana/config/kibana.yml`.
 
 It is also possible to map the entire `config` directory instead of a single file.
 
+Some kibana docs here - https://www.elastic.co/guide/en/kibana/current/xpack-apm.html
+
 ### How can I tune the APM server configuration?
 
 The APM configuration is stored in `apm-server/config/apm-server.yml`.

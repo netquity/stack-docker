@@ -13,7 +13,7 @@ services:
       - "127.0.0.1:9300:9300"
     environment:
       ES_JAVA_OPTS: "-Xmx256m -Xms256m"
-      PING_USERNAME: "kibanaro"
+      PING_USERNAME: "kibanaro"  # TODO: use env vars or secrets here
       PING_PASSWORD: "kibanaro"
     networks:
       - elk

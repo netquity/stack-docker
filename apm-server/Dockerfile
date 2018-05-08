@@ -11,3 +11,6 @@ COPY certs/ /usr/share/apm-server/certs/
 RUN chown apm-server /usr/share/apm-server/certs/*
 
 USER apm-server
+
+# a command for setting up default kibana dashboards:
+# docker-compose exec -T apm_server apm-server setup --dashboards
