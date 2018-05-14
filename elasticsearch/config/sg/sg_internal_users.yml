@@ -1,50 +1,58 @@
 # This is the internal user database
 # The hash value is a bcrypt hash and can be generated with plugin/tools/hash.sh
 
-#password is: admin
-admin:
+#password is: sahyPdAitU
+netquity:
   readonly: true
-  hash: $2a$12$VcCDgh2NDk07JGN0rjGbM.Ad41qVR/YFJcgHp0UGns5JDymv..TOG
+  hash: $2y$12$LSfIrHijZeFExUd0DLHO1e0gdz3wrDjMBeGSdnr91AQTRg6FPbfVm
   roles:
     - admin
+    - kibanauser
 
-#password is: logstash
-logstash:
+#password is: Wewfedfij7
+admin:
   readonly: true
-  hash: $2a$12$u1ShR4l4uBS3Uv59Pa2y5.1uQuZBrZtmNfqB3iM/.jL0XoV9sghS2
+  hash: $2y$12$GZejuDuvnIuXYGHLB/yy4e8oBKagHvY6nyJZtjDr6kE9STjhKnc/S
   roles:
-    - logstash
+    - admin
+    - kibanauser
 
-#password is: apm-server
+#password is: Ghefrojcuc
 apm:
   readonly: true
-  hash: $2y$12$zE1.MnHGL7x0Ob91xHN1uuepMFDgrk4fxibAdQD4PNXJ.niS9jmK2
+  hash: $2y$12$n/e9hv2GU3/ZrbaUXWzRMe9.ibJbVYS3tRcrqF.nnshSabbovZncC
   roles:
     - apm
 
-
-#password is: kibanaserver
+#password is: Dyd2Swequo
 kibanaserver:
   readonly: true
-  hash: $2a$12$4AcgAt3xwOWadA5s5blL6ev39OXDNhmOesEoo33eZtrq2N0YrU3H.
+  hash: $2y$12$uGmmBadVJ5s.4OVI.WsI6OyhhahH8C3kXW1Qcw.h.SP/MpqsJaOu.
+
+#password is: logstash
+#logstash:
+#  readonly: true
+#  hash: $2a$12$u1ShR4l4uBS3Uv59Pa2y5.1uQuZBrZtmNfqB3iM/.jL0XoV9sghS2
+#  roles:
+#    - logstash
 
 #password is: kibanaro
-kibanaro:
-  readonly: true
-  hash: $2a$12$JJSXNfTowz7Uu5ttXfeYpeYE0arACvcwlPBStB1F.MI7f0U9Z4DGC
-  roles:
-    - kibanauser
-    - readall
+#kibanaro:
+#  readonly: true
+#  hash: $2a$12$JJSXNfTowz7Uu5ttXfeYpeYE0arACvcwlPBStB1F.MI7f0U9Z4DGC
+#  roles:
+#    - kibanauser
+#    - readall
 
 #password is: readall
-readall:
-  hash: $2a$12$ae4ycwzwvLtZxwZ82RmiEunBbIPiAmGZduBAjKN0TXdwQFtCwARz2
+#readall:
+#  hash: $2a$12$ae4ycwzwvLtZxwZ82RmiEunBbIPiAmGZduBAjKN0TXdwQFtCwARz2
   #password is: readall
-  roles:
-    - readall
+#  roles:
+#    - readall
 
 #password is: snapshotrestore
-snapshotrestore:
-  hash: $2y$12$DpwmetHKwgYnorbgdvORCenv4NAK8cPUg8AI6pxLCuWf/ALc0.v7W
-  roles:
-    - snapshotrestore
+#snapshotrestore:
+#  hash: $2y$12$DpwmetHKwgYnorbgdvORCenv4NAK8cPUg8AI6pxLCuWf/ALc0.v7W
+#  roles:
+#    - snapshotrestore

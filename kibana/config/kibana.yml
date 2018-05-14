@@ -12,7 +12,7 @@ elasticsearch.url: http://elasticsearch:9200
 ## Custom configuration
 # TODO: move it to env vars or something
 elasticsearch.username: "kibanaserver"
-elasticsearch.password: "kibanaserver"
+elasticsearch.password: "Dyd2Swequo"
 
 # TODO: move it to env vars or something
 searchguard.cookie.password: "123567818187654rwrwfsfshdhdhtegdhfzftdhncn"
