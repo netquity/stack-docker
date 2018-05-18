@@ -1,5 +1,5 @@
 # https://github.com/elastic/kibana-docker
-FROM docker.elastic.co/kibana/kibana-oss:6.2.2
+FROM docker.elastic.co/kibana/kibana:6.2.2
 
 # Search Guard plugin
 # http://docs.search-guard.com/latest/kibana-plugin-installation

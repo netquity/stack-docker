@@ -1,6 +1,6 @@
 # https://github.com/elastic/elasticsearch-docker
 
-FROM docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.2
+FROM docker.elastic.co/elasticsearch/elasticsearch:6.2.2
 
 ADD config/sg/ /usr/share/elasticsearch/config/sg/
 ADD bin/ /usr/share/elasticsearch/bin/

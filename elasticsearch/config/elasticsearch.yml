@@ -17,7 +17,7 @@ discovery.type: single-node
 
 ## Search Guard
 #
-searchguard.enterprise_modules_enabled: false
+searchguard.enterprise_modules_enabled: false  # community edition only
 
 searchguard.ssl.transport.keystore_filepath: sg/node-0-keystore.jks
 searchguard.ssl.transport.truststore_filepath: sg/truststore.jks
@@ -27,3 +27,13 @@ searchguard.authcz.admin_dn:
   - "CN=kirk,OU=client,O=client,l=tEst,C=De"
 
 # searchguard.restapi.roles_enabled: ["sg_all_access"]  # does not work for community edition
+
+## S-Pack settings
+#
+# https://github.com/floragunncom/search-guard-kibana-plugin/issues/38
+# https://github.com/floragunncom/search-guard-ssl/issues/43
+xpack.monitoring.enabled: false
+xpack.graph.enabled: false
+xpack.ml.enabled: false
+xpack.security.enabled: false
+xpack.watcher.enabled: false
