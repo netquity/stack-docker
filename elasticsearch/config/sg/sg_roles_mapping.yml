@@ -22,6 +22,7 @@ sg_kibana_server:
 sg_kibana_user:
   backendroles:
     - kibanauser
+    - admin
 
 sg_readall:
   readonly: true

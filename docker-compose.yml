@@ -1,5 +1,8 @@
 version: '2'
 
+volumes:
+  es_data:
+
 services:
 
   elasticsearch:  # https://github.com/elastic/elasticsearch-docker
@@ -8,6 +11,7 @@ services:
     container_name: elasticsearch
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - es_data:/usr/share/elasticsearch/data
     ports:  # exposed to localhost only
       - "127.0.0.1:9200:9200"
       - "127.0.0.1:9300:9300"
