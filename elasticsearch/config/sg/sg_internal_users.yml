@@ -1,15 +1,22 @@
 # This is the internal user database
-# The hash value is a bcrypt hash and can be generated with plugin/tools/hash.sh
+# https://docs.search-guard.com/latest/internal-users-database
 
-#password is: sahyPdAitU
+# The hash value is a bcrypt hash and can be generated with
+# /usr/share/elasticsearch/plugins/search-guard-6/tools/hash.sh
+
 netquity:
   readonly: true
   hash: $2y$12$LSfIrHijZeFExUd0DLHO1e0gdz3wrDjMBeGSdnr91AQTRg6FPbfVm
   roles:
-    - admin
+    - readall
     - kibanauser
 
-#password is: Wewfedfij7
+netquity_ro:
+  readonly: true
+  hash: $2y$12$Kf7TKa9SqWh4BmtxnYFtoOWay7jjb1U0m/NjrgmI5knROSYC2IiU2
+  roles:
+    - readall
+
 admin:
   readonly: true
   hash: $2y$12$GZejuDuvnIuXYGHLB/yy4e8oBKagHvY6nyJZtjDr6kE9STjhKnc/S
@@ -17,14 +24,12 @@ admin:
     - admin
     - kibanauser
 
-#password is: Ghefrojcuc
 apm:
   readonly: true
   hash: $2y$12$n/e9hv2GU3/ZrbaUXWzRMe9.ibJbVYS3tRcrqF.nnshSabbovZncC
   roles:
     - apm
 
-#password is: Dyd2Swequo
 kibanaserver:
   readonly: true
   hash: $2y$12$uGmmBadVJ5s.4OVI.WsI6OyhhahH8C3kXW1Qcw.h.SP/MpqsJaOu.
@@ -35,21 +40,6 @@ kibanaserver:
 #  hash: $2a$12$u1ShR4l4uBS3Uv59Pa2y5.1uQuZBrZtmNfqB3iM/.jL0XoV9sghS2
 #  roles:
 #    - logstash
-
-#password is: kibanaro
-#kibanaro:
-#  readonly: true
-#  hash: $2a$12$JJSXNfTowz7Uu5ttXfeYpeYE0arACvcwlPBStB1F.MI7f0U9Z4DGC
-#  roles:
-#    - kibanauser
-#    - readall
-
-#password is: readall
-#readall:
-#  hash: $2a$12$ae4ycwzwvLtZxwZ82RmiEunBbIPiAmGZduBAjKN0TXdwQFtCwARz2
-  #password is: readall
-#  roles:
-#    - readall
 
 #password is: snapshotrestore
 #snapshotrestore:
