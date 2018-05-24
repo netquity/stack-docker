@@ -9,6 +9,11 @@ server.name: kibana
 server.host: "0"
 elasticsearch.url: http://elasticsearch:9200
 
+# https://www.elastic.co/guide/en/kibana/current/production.html#enabling-ssl
+#server.ssl.enabled: true
+#server.ssl.key: /path/to/your/server.key
+#server.ssl.certificate: /path/to/your/server.crt
+
 ## Custom configuration
 # TODO: move it to env vars or something
 elasticsearch.username: "kibanaserver"
