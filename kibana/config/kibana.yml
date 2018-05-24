@@ -10,9 +10,9 @@ server.host: "0"
 elasticsearch.url: http://elasticsearch:9200
 
 # https://www.elastic.co/guide/en/kibana/current/production.html#enabling-ssl
-#server.ssl.enabled: true
-#server.ssl.key: /path/to/your/server.key
-#server.ssl.certificate: /path/to/your/server.crt
+server.ssl.enabled: true
+server.ssl.key: /run/secrets/kibana_ssl_key.pem
+server.ssl.certificate: /run/secrets/kibana_ssl_cert.pem
 
 ## Custom configuration
 # TODO: move it to env vars or something
@@ -20,7 +20,7 @@ elasticsearch.username: "kibanaserver"
 elasticsearch.password: "Dyd2Swequo"
 
 # TODO: move it to env vars or something
-searchguard.cookie.password: "123567818187654rwrwfsfshdhdhtegdhfzftdhncn"
+searchguard.cookie.password: "NuCodyuidlabdetnefjafavDigAshsevyewagNoblysIvEmsUt"
 
 # X-pack settings
 # https://www.elastic.co/guide/en/kibana/6.2/settings-xpack-kb.html

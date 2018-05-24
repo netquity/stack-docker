@@ -1,4 +1,4 @@
-version: '2'
+version: '3.1'
 
 volumes:
   es_data:
@@ -29,11 +29,14 @@ services:
     volumes:
       - ./kibana/config/:/usr/share/kibana/config:ro
     ports:
-      - "0.0.0.0:80:5601"
+      - "0.0.0.0:443:5601"
     networks:
       - elk
     depends_on:
       - elasticsearch
+    secrets:
+      - kibana_ssl_cert.pem
+      - kibana_ssl_key.pem
 
   apm_server:  # https://github.com/elastic/apm-server-docker
     build:
@@ -45,7 +48,12 @@ services:
     command: -e -E 'apm-server.host=0.0.0.0:8200'
     depends_on: ['elasticsearch', 'kibana']
 
-networks:
+secrets:
+  kibana_ssl_cert.pem:
+    file: /etc/letsencrypt/live/apm.icelinkapp.com/cert.pem
+  kibana_ssl_key.pem:
+    file: /etc/letsencrypt/live/apm.icelinkapp.com/privkey.pem
 
+networks:
   elk:
     driver: bridge
